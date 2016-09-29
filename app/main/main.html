@@ -1,9 +1,7 @@
 <div class="layout-column flex">
-
   <md-progress-linear ng-if="main.isLoadingSession" md-mode="indeterminate"></md-progress-linear>
 
   <div flex layout="row">
-
     <div flex layout-padding layout="column">
       <md-content md-scroll-y md-scroll-x class="flex layout-column">
         <div ng-if="!main.showConf" layout="row">
@@ -84,10 +82,10 @@
             </div>
           </div>
         </div>
-          <div layout="row" layout-align="center start" flex>
-            <md-whiteframe layout="column" flex class="md-whiteframe-1dp">
-              <table class="table table-hover table-mc-light-blue ng-scope">
-                <thead>
+        <div layout="row" layout-align="center start" flex>
+          <md-whiteframe layout="column" flex class="md-whiteframe-1dp">
+            <table class="table table-hover table-mc-light-blue ng-scope">
+              <thead>
                 <tr>
                   <th>
                     <md-checkbox ng-click="main.toggleAll();$event.stopPropagation()" ng-model="main.selectAll" aria-label="Checkbox 1">
@@ -99,20 +97,18 @@
                   <th>Value</th>
                   <th></th>
                 </tr>
-                </thead>
-                <tbody>
+              </thead>
+              <tbody>
                 <tr ng-repeat="action in main.spec.actions track by $index" ng-class="{'executed': action.executed, 'error': action.error}">
                   <td>
                     <md-checkbox ng-click="main.toggleAction(action)" ng-model="action.checked" aria-label="Checkbox $index"></md-checkbox>
                   </td>
-                  <td><md-icon ng-if="action.breakpoint" style="color:#9b1b1d" md-svg-icon="record"></md-icon><b>{{ action.action }}</b></td>
+                  <td>
+                    <md-icon ng-if="action.breakpoint" style="color:#9b1b1d" md-svg-icon="record"></md-icon><b>{{ action.action }}</b></td>
                   <td>{{ action.type }}</td>
                   <td>
-                    <md-input-container ng-if="action.locators.length > 1" style="padding-bottom: 5px;" md-no-float
-                                        class="md-block">
-                      <md-select style="max-width: 225px" aria-label="Locator {{ locator.value }}"
-                                 ng-model="action.locator"
-                                 ng-model-options="{trackBy: '$value.value'}">
+                    <md-input-container ng-if="action.locators.length > 1" style="padding-bottom: 5px;" md-no-float class="md-block">
+                      <md-select style="max-width: 225px" aria-label="Locator {{ locator.value }}" ng-model="action.locator" ng-model-options="{trackBy: '$value.value'}">
                         <md-option ng-value="locator" ng-repeat="locator in action.locators">
                           {{ locator.value }}
                         </md-option>
@@ -150,10 +146,10 @@
                     </md-menu>
                   </td>
                 </tr>
-                </tbody>
-              </table>
-            </md-whiteframe>
-          </div>
+              </tbody>
+            </table>
+          </md-whiteframe>
+        </div>
         <!--<md-button ng-click="main.exportProtractor()">Export Protractor</md-button>
         <md-button ng-click="main.runTest()">Run Test</md-button>-->
       </md-content>
